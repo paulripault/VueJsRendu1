@@ -1,3 +1,6 @@
+    #Paul RIPAULT
+    #Alexis MICHAUD
+
 # PremierRendu
 
 ## Build Setup
