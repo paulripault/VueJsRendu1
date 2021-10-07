@@ -105,6 +105,12 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Inspire',
           to: '/inspire'
+        },
+        //Ajout de la route resgister sur l'écran
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Création de compte',
+          to: '/register'
         }
       ],
       miniVariant: false,
