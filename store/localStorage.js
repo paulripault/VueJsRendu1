@@ -1,6 +1,6 @@
 
 export const state = () => ({
   name: "",
-  password: "test",
+  password: "",
   status: false,
 })
