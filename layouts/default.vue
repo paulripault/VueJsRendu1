@@ -85,6 +85,13 @@ export default {
           title: "Connexion",
           to: "/auth/login",
         },
+
+        //Ajout de la route resgister sur l'écran
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Création de compte',
+          to: '/register'
+        }
       ],
       miniVariant: false,
       right: true,
