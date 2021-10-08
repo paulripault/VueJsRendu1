@@ -1,8 +1,5 @@
 <template>
   <div>
-    <v-btn :disabled="!valid" color="primary" class="mr-4" @click="bar"
-      >Revenir en arrière</v-btn
-    >
     <v-form ref="form" v-model="valid" lazy-validation>
       <v-text-field
         v-model="name"
