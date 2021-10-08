@@ -30,7 +30,7 @@ import { ACTIONS } from "~/store/localStorage";
 export default {
   data: () => ({
     valid: true,
-    name: this.name,
+    name: "",
     nameRules: [
       (v) => !!v || "Votre nom ne peut pas être vide",
       (v) =>
