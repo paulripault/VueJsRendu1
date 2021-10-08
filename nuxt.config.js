@@ -38,6 +38,10 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    ['nuxt-vuex-localstorage', {
+      localStorage: ['foo', 'bar'],
+      sessionStorage: ['sfoo', 'sbar']
+    }]
   ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -61,5 +65,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: [
+      'nuxt-vuex-localstorage'
+    ],
+    extend(config, ctx) {
+    }
   }
 }
