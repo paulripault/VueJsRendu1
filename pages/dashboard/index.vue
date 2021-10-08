@@ -8,10 +8,10 @@
     </div>
     <div v-if="$store.state.localStorage.status == true">
       {{ $store.state.localStorage.name }}
+      <v-btn color="error" class="mr-4" @click="reset"
+        >supprimer mon compte</v-btn
+      >
     </div>
-    <v-btn color="error" class="mr-4" @click="reset"
-      >supprimer mon compte</v-btn
-    >
   </div>
 </template>
 

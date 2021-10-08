@@ -1,9 +1,23 @@
 <template>
   <div>
     <v-form ref="form" v-model="valid" lazy-validation>
-      <v-text-field v-model="name" :counter="20" :rules="nameRules" label="Nom" required></v-text-field>
-      <v-text-field v-model="password" :counter="20" :rules="passwordRules" label="Mot de Passe" required></v-text-field>
-      <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">Connexion</v-btn>
+      <v-text-field
+        v-model="name"
+        :counter="20"
+        :rules="nameRules"
+        label="Nom"
+        required
+      ></v-text-field>
+      <v-text-field
+        v-model="password"
+        :counter="20"
+        :rules="passwordRules"
+        label="Mot de Passe"
+        required
+      ></v-text-field>
+      <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate"
+        >Connexion</v-btn
+      >
       <v-btn color="error" class="mr-4" @click="reset">Vider les champs</v-btn>
     </v-form>
   </div>
@@ -11,6 +25,8 @@
 
 
 <script>
+import { ACTIONS } from "~/store/localStorage";
+
 export default {
   data: () => ({
     valid: true,
@@ -27,7 +43,12 @@ export default {
 
   methods: {
     validate() {
-      this.$refs.form.validate();
+      this.$store.dispatch(ACTIONS.LOGIN_USER_METHOD, {
+        name: this.$store.state.localStorage.name,
+        password: this.$store.state.localStorage.password,
+      });
+      this.$router.push("/dashboard");
+      console.log(this.$store.state.localStorage.name);
     },
     reset() {
       this.$refs.form.reset();
@@ -35,15 +56,15 @@ export default {
   },
   computed: {
     name() {
-      return this.$store.state.localStorage.name
+      return this.$store.state.localStorage.name;
     },
     password() {
-      return this.$store.state.localStorage.password
+      return this.$store.state.localStorage.password;
     },
     loaded() {
       return (
         this.$store.state.localStorage.name &&
-        this.$store.state.localStorage.status && 
+        this.$store.state.localStorage.status &&
         this.$store.state.localStorage.password
       );
     },
