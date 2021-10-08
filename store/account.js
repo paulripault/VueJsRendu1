@@ -1,6 +1,6 @@
 
 export const ACTIONS = {
-  DELETE_USER_METHOD: 'deleteAccount/deleteUser',
+  DELETE_USER_METHOD: 'account/deleteUser',
 }
 
 export const state = () => ({

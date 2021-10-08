@@ -1,5 +1,8 @@
 <template>
   <div>
+    <v-btn color="primary" class="mr-4" @click="bar"
+      >Revenir en arrière</v-btn
+    >
     <!-- Render of the title and the list of clients -->
     <h1>{{ title }}</h1>
     <h3>{{ list }}</h3>
@@ -8,15 +11,14 @@
     </div>
     <div v-if="$store.state.localStorage.status == true">
       {{ this.$store.state.localStorage.name }}
-      <v-btn color="error" class="mr-4" @click="reset"
-        >supprimer mon compte</v-btn
-      >
+      <v-btn color="primary" class="mr-4" @click="reset">se deconnecter</v-btn>
+      <v-btn color="error" class="mr-4" @click="reset">supprimer mon compte</v-btn>
     </div>
   </div>
 </template>
 
 <script>
-import { ACTIONS } from "~/store/deleteAccount";
+import { ACTIONS } from "~/store/account";
 
 export default {
   data: () => ({
@@ -31,7 +33,9 @@ export default {
         status: this.$store.state.localStorage.status,
       });
     },
+    bar() {
+      this.$router.push("/welcome");
+    },
   },
 };
 </script> 
-

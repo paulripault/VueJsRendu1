@@ -1,5 +1,8 @@
 <template>
   <div>
+    <v-btn color="primary" class="mr-4" @click="bar"
+      >Revenir en arrière</v-btn
+    >
     <v-form ref="form" v-model="valid" lazy-validation>
       <v-text-field
         v-model="name"
@@ -47,11 +50,15 @@ export default {
         name: this.name,
         password: this.password,
       });
-      this.$router.push("/dashboard");
-      console.log(this.$store.state.localStorage.name);
+      if (this.name && this.password != null) {
+        this.$router.push("/dashboard");
+      }
     },
     reset() {
       this.$refs.form.reset();
+    },
+    bar() {
+      this.$router.push("/welcome")
     },
   },
 };
