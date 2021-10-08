@@ -1,10 +1,5 @@
 <template>
   <div>
-    <!-- {{ $localStorageLoaded }}
-    {{ $store.state.localStorage.name }}
-    {{ $store.state.localStorage.password }}
-    {{ $store.state.localStorage.status }} -->
-
     <v-form ref="form" v-model="valid" lazy-validation>
       <v-text-field v-model="name" :counter="20" :rules="nameRules" label="Nom" required></v-text-field>
       <v-text-field v-model="password" :counter="20" :rules="passwordRules" label="Mot de Passe" required></v-text-field>
@@ -48,7 +43,8 @@ export default {
     loaded() {
       return (
         this.$store.state.localStorage.name &&
-        this.$store.state.localStorage.status
+        this.$store.state.localStorage.status && 
+        this.$store.state.localStorage.password
       );
     },
   },

@@ -3,24 +3,34 @@
     <!-- Render of the title and the list of clients -->
     <h1>{{ title }}</h1>
     <h3>{{ list }}</h3>
-    <div v-if="$store.state.users.users.length == 0">Pas d'utilisateurs</div>
-
-    <ul v-else>
-      <v-avatar color="teal" size="8"></v-avatar>
-      <li v-for="(user, i) in $store.state.users.users" :key="i">
-        {{ user.name }}
-      </li>
-    </ul>
+    <div v-if="$store.state.localStorage.status == false">
+      Pas d'utilisateurs connecté
+    </div>
+    <div v-if="$store.state.localStorage.status == true">
+      {{ $store.state.localStorage.name }}
+    </div>
+    <v-btn color="error" class="mr-4" @click="reset"
+      >supprimer mon compte</v-btn
+    >
   </div>
 </template>
 
 <script>
+import { ACTIONS } from "~/store/deleteAccount";
+
 export default {
-  data() {
-    return {
-      title: "Tableau de bord ",
-      list: "Liste des utilisateurs",
-    };
+  data: () => ({
+    title: "Tableau de bord ",
+    list: "Liste des utilisateurs",
+  }),
+  methods: {
+    reset() {
+      this.$store.dispatch(ACTIONS.DELETE_USER_METHOD, {
+        name: this.$store.state.localStorage.name,
+        password: this.$store.state.localStorage.password,
+        status: this.$store.state.localStorage.status,
+      });
+    },
   },
 };
 </script> 
