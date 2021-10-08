@@ -19,7 +19,7 @@
         required
       ></v-text-field>
       <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate"
-        >Connexion</v-btn
+        >S'enregistrer</v-btn
       >
       <v-btn color="error" class="mr-4" @click="reset">Vider les champs</v-btn>
     </v-form>

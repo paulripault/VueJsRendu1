@@ -25,6 +25,7 @@ export default {
     title: "Tableau de bord ",
     list: "Liste des utilisateurs",
   }),
+
   methods: {
     reset() {
       this.$store.dispatch(ACTIONS.DELETE_USER_METHOD, {
