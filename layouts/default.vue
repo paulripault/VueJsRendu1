@@ -73,7 +73,7 @@ export default {
         {
           icon: "mdi-apps",
           title: "Accueil",
-          to: "/welcome/welcome",
+          to: "/welcome",
         },
       ],
       miniVariant: false,
