@@ -1,6 +1,11 @@
 #RIPAULT Paul   @paulripault
 #MICHAUD Alexis @AlexisMCHD
 
+#Dans le projet il manque l'utilisation des cookies, ainsi que. 
+La suppréssion et la déconexion de l'utilisateur dans le menu principale.
+Et la création de compte dans la page enregistrer avec le lien de la page de connexion 
+
+
 # PremierRendu
 
 ## Build Setup
