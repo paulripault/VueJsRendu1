@@ -7,7 +7,7 @@
       Pas d'utilisateurs connecté
     </div>
     <div v-if="$store.state.localStorage.status == true">
-      {{ $store.state.localStorage.name }}
+      {{ this.$store.state.localStorage.name }}
       <v-btn color="error" class="mr-4" @click="reset"
         >supprimer mon compte</v-btn
       >

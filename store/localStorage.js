@@ -11,8 +11,8 @@ export const ACTIONS = {
 
 export const mutations = {
   LOGIN_USER: (state, data) => {
-    state.name = data,
-    state.password = data,
+    state.name = data.name,
+    state.password = data.password,
     state.status = true
   }  
 }

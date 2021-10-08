@@ -30,7 +30,7 @@ import { ACTIONS } from "~/store/localStorage";
 export default {
   data: () => ({
     valid: true,
-    name: this.name,
+    name: "",
     nameRules: [
       (v) => !!v || "Votre nom ne peut pas être vide",
       (v) =>
@@ -45,9 +45,8 @@ export default {
     validate() {
       this.$store.dispatch(ACTIONS.LOGIN_USER_METHOD, {
         name: this.name,
-        password: this.password,
+        password:this.password,
       });
-      this.$router.push("/dashboard");
       console.log(this.$store.state.localStorage.name);
     },
     reset() {

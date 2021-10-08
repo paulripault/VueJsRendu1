@@ -90,7 +90,7 @@ export default {
         {
           icon: 'mdi-chart-bubble',
           title: 'Création de compte',
-          to: '/register'
+          to: '/auth/register'
         }
       ],
       miniVariant: false,
