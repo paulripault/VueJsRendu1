@@ -1,9 +1,9 @@
 <template>
-  <div v-show="loaded">
-    {{ $localStorageLoaded }}
+  <div>
+    <!-- {{ $localStorageLoaded }}
     {{ $store.state.localStorage.name }}
     {{ $store.state.localStorage.password }}
-    {{ $store.state.localStorage.status }}
+    {{ $store.state.localStorage.status }} -->
 
     <v-form ref="form" v-model="valid" lazy-validation>
       <v-text-field v-model="name" :counter="20" :rules="nameRules" label="Nom" required></v-text-field>
@@ -19,14 +19,14 @@
 export default {
   data: () => ({
     valid: true,
-    name: this.$store.state.localStorage.name,
+    //name: this.$store.state.localStorage.name,
     nameRules: [
       (v) => !!v || "Votre nom ne peut pas être vide",
       (v) =>
         (v && v.length <= 20) ||
         "Votre nom ne doit pas dépasser les 20 caractères",
     ],
-    password: this.$store.state.localStorage.password,
+    //password: this.$store.state.localStorage.password,
     passwordRules: [(v) => !!v || "Votre mot de passe ne peut pas être vide"],
   }),
 
@@ -39,11 +39,16 @@ export default {
     },
   },
   computed: {
+    name() {
+      return this.$store.state.localStorage.name
+    },
+    password() {
+      return this.$store.state.localStorage.password
+    },
     loaded() {
       return (
         this.$store.state.localStorage.name &&
-        this.$store.state.localStorage.status,
-        console.log(this.$store.state.localStorage.name)
+        this.$store.state.localStorage.status
       );
     },
   },
