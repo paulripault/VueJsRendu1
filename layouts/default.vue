@@ -72,26 +72,9 @@ export default {
       items: [
         {
           icon: "mdi-apps",
-          title: "Welcome",
-          to: "/",
+          title: "Accueil",
+          to: "/welcome/welcome",
         },
-        {
-          icon: "mdi-chart-bubble",
-          title: "DashBoard",
-          to: "/dashboard",
-        },
-        {
-          icon: "mdi-chart-bubble",
-          title: "Connexion",
-          to: "/auth/login",
-        },
-
-        //Ajout de la route resgister sur l'écran
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Création de compte',
-          to: '/register'
-        }
       ],
       miniVariant: false,
       right: true,

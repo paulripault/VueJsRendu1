@@ -1,5 +1,8 @@
 <template>
   <div>
+    <v-btn :disabled="!valid" color="primary" class="mr-4" @click="bar"
+      >Revenir en arrière</v-btn
+    >
     <v-form ref="form" v-model="valid" lazy-validation>
       <v-text-field
         v-model="name"
@@ -30,30 +33,33 @@ import { ACTIONS } from "~/store/localStorage";
 export default {
   data: () => ({
     valid: true,
-    //name: this.$store.state.localStorage.name,
+    name: "",
     nameRules: [
       (v) => !!v || "Votre nom ne peut pas être vide",
       (v) =>
         (v && v.length <= 20) ||
         "Votre nom ne doit pas dépasser les 20 caractères",
     ],
-    //password: this.$store.state.localStorage.password,
+    password: "",
     passwordRules: [(v) => !!v || "Votre mot de passe ne peut pas être vide"],
   }),
 
   methods: {
     validate() {
       this.$store.dispatch(ACTIONS.LOGIN_USER_METHOD, {
-        name: this.$store.state.localStorage.name,
-        password: this.$store.state.localStorage.password,
+        name: this.name,
+        password: this.password,
       });
-      this.$router.push("/dashboard");
-      console.log(this.$store.state.localStorage.name);
+      if (this.name && this.password != null) {
+        this.$router.push("/dashboard");
+      }
     },
     reset() {
       this.$refs.form.reset();
     },
+    bar() {
+      this.$router.push("/");
+    },
   },
 };
 </script>
-
